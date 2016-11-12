@@ -1,15 +1,24 @@
 {
   "name": "center-it",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
+  "keywords": [
+    "center-it",
+    "centerIt",
+    "center"
+  ],
   "scripts": {
     "test": "mocha ./test.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "jack yang",
+  "license": "MIT",
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackgit/center-it.git"
   }
 }
