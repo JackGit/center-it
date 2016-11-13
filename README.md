@@ -4,7 +4,7 @@
 
 ## demo
 
-[demo](http://demo.jackyang.me/center-it/example.index.html)
+[demo](http://demo.jackyang.me/center-it/index.html)
 
 ## include
 
