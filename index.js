@@ -1,11 +1,13 @@
 (function (global, factory) {
+  'use strict'
+  /* istanbul ignore next */
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
-  (global.CenterIt = factory());
-}(this, function () { 'use strict';
-
+  (global.CenterIt = factory())
+}(this, function () {
+  'use strict'
   function CenterIt (options) {
-    options = options || {}
+    options = options || /* istanbul ignore next */ {}
     this.options = {
       containerWidth: 100,
       containerHeight: 100,
@@ -14,6 +16,7 @@
       centerType: 'cover' // 'cover', 'contain'
     }
 
+    /* istanbul ignore next */
     for (var p in this.options) {
       if (options[p] !== undefined) {
         this.options[p] = options[p]
