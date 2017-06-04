@@ -7,18 +7,20 @@
     * {
       font-family: arial
     }
-    #container {
+    .container {
       position: relative;
       background-color: lightgrey;
       width: 200px;
       height: 200px;
-      margin: 0 auto;
-      margin-top: 10%;
+      margin: 10% auto;
     }
     #target {
       position: absolute;
       background-color: red;
       opacity: 0.5;
+    }
+    #canvas {
+      display: block;
     }
   </style>
 </head>
@@ -29,6 +31,8 @@
     <div>width: <input type="number" id="cWidth" value="200" oninput="makeCenter()">, height: <input type="number" id="cHeight" value="200" oninput="makeCenter()"></div>
     <h4>origin:</h4>
     <div>width: <input type="number" id="oWidth" value="600" oninput="makeCenter()">, height: <input type="number" id="oHeight" value="400" oninput="makeCenter()"></div>
+    <h4>image size</h4>
+    <div>width: 500, height: 181</div>
     <h4>center type</h4>
     <div>
       <select id="type" onchange="makeCenter()">
@@ -37,12 +41,15 @@
       </select>
     </div>
   </div>
-  <div id="container">
+
+  <div id="container" class="container">
     container
     <div id="target">
       origin
     </div>
   </div>
+
+  <canvas id="canvas" class="container" width="200" height="200"><canvas>
 
   <script src="assets/js/center-it.js"></script>
   <script>
@@ -54,8 +61,17 @@
       container.style.height = document.getElementById('cHeight').value + 'px'
     }
 
-    function makeCenter () {
-      resizeContainer()
+    function resizeCanvas () {
+      var canvas = document.getElementById('canvas')
+      var w = document.getElementById('cWidth').value
+      var h = document.getElementById('cHeight').value
+      canvas.style.width = w + 'px'
+      canvas.style.height = h + 'px'
+      canvas.width = w
+      canvas.height = h
+    }
+
+    function centerElement () {
       var centerIt = new CenterIt({
         containerWidth: document.getElementById('cWidth').value,
         containerHeight: document.getElementById('cHeight').value,
@@ -64,11 +80,42 @@
         centerType: document.getElementById('type').value
       })
 
+      // setPosition is a wrapper of blow commented code
+      centerIt.setPosition(target)
+
+      /*
       var target = document.getElementById('target')
       target.style.top = centerIt.offset().top + 'px'
       target.style.left = centerIt.offset().left + 'px'
       target.style.width = centerIt.width() + 'px'
       target.style.height = centerIt.height() + 'px'
+      */
+    }
+
+    function makeCenter () {
+      resizeContainer()
+      resizeCanvas()
+      centerElement()
+      drawImage()
+    }
+
+    function drawImage () {
+      var canvas = document.getElementById('canvas')
+      var context = canvas.getContext('2d')
+      var image = new Image()
+
+      image.src = 'assets/images/sample.png'
+      image.onload = function () {
+        var centerIt = new CenterIt({
+          containerWidth: canvas.width,
+          containerHeight: canvas.height,
+          originWidth: image.naturalWidth,
+          originHeight: image.naturalHeight,
+          centerType: document.getElementById('type').value
+        })
+        context.clearRect(0, 0, canvas.width, canvas.height)
+        centerIt.drawImage(context, image)
+      }
     }
   </script>
 </body>

@@ -40,3 +40,13 @@ centerIt.height() // return resized height in px
 centerIt.ratio() // return resized ratio of origin
 centerIt.offset() // return offset {top, left} of origin in px
 ```
+
+it provides two helper functions
+
+```js
+// this is a helper function to set top left width height
+centerIt.setPosition(el)
+
+// this is a helper function to draw image into a canvas
+centerIt.drawImage(context, image)
+```

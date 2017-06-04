@@ -127,6 +127,39 @@
 
     offset: function () {
       return this._offset
+    },
+
+    setPosition: function (el) {
+      el.style.top = this.offset().top + 'px'
+      el.style.left = this.offset().left + 'px'
+      el.style.width = this.width() + 'px'
+      el.style.height = this.height() + 'px'
+    },
+
+    drawImage: function (context, image) {
+      if (this.options.centerType === 'cover') {
+        context.drawImage(
+          image,
+          this.offset().left * -1,
+          this.offset().top * -1,
+          this.options.containerWidth / this.ratio(),
+          this.options.containerHeight / this.ratio(),
+          0, 0,
+          this.options.containerWidth,
+          this.options.containerHeight
+        )
+      } else {
+        context.drawImage(
+          image,
+          0, 0,
+          this.options.containerWidth / this.ratio(),
+          this.options.containerHeight / this.ratio(),
+          this.offset().left,
+          this.offset().top,
+          this.options.containerWidth,
+          this.options.containerHeight
+        )
+      }
     }
   }
 
