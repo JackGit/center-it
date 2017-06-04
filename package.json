@@ -1,8 +1,8 @@
 {
   "name": "center-it",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
-  "main": "center-it.js",
+  "main": "src/center-it.js",
   "keywords": [
     "center-it",
     "centerIt",
