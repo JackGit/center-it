@@ -4,7 +4,7 @@
 
 ## demo
 
-[demo](http://demo.jackyang.me/center-it/index.html)
+[demo](https://jackgit.github.io/center-it/index.html)
 
 ## include
 
