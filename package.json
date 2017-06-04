@@ -1,15 +1,15 @@
 {
   "name": "center-it",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "center-it.js",
   "keywords": [
     "center-it",
     "centerIt",
     "center"
   ],
   "scripts": {
-    "test": "mocha ./test.js",
+    "test": "mocha ./test/index.js",
     "coverage": "istanbul cover _mocha -- -R test.js"
   },
   "author": "jack yang",
