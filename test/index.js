@@ -1,5 +1,5 @@
 var expect = require('chai').expect
-var CenterIt = require('../center-it.js')
+var CenterIt = require('../src/center-it.js')
 
 describe('"cover" center type', function () {
   describe('same width / height ratio', function () {
