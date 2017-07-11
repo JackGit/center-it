@@ -140,8 +140,8 @@
       if (this.options.centerType === 'cover') {
         context.drawImage(
           image,
-          this.offset().left * -1,
-          this.offset().top * -1,
+          this.offset().left * -1 / this.ratio(),
+          this.offset().top * -1 / this.ratio(),
           this.options.containerWidth / this.ratio(),
           this.options.containerHeight / this.ratio(),
           0, 0,
@@ -154,8 +154,8 @@
           0, 0,
           this.options.containerWidth / this.ratio(),
           this.options.containerHeight / this.ratio(),
-          this.offset().left,
-          this.offset().top,
+          this.offset().left / this.ratio(),
+          this.offset().top / this.ratio(),
           this.options.containerWidth,
           this.options.containerHeight
         )
