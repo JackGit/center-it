@@ -154,8 +154,8 @@
           0, 0,
           this.options.containerWidth / this.ratio(),
           this.options.containerHeight / this.ratio(),
-          this.offset().left / this.ratio(),
-          this.offset().top / this.ratio(),
+          this.offset().left,
+          this.offset().top,
           this.options.containerWidth,
           this.options.containerHeight
         )
